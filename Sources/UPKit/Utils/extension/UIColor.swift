@@ -16,23 +16,25 @@ extension UIColor {
     }
     
     public var name: String {
-        getName(for: self.cgColor)
-    }
-    
-    func getName(for color: CGColor) -> String {
-        guard let colorComponents = color.components else { fatalError("Could not find color components") }
-        
-        let red = Int(colorComponents[0] * 255)
-        let green = Int(colorComponents[1] * 255)
-        let blue = Int(colorComponents[2] * 255)
-        
+        let color = self.cgColor
+        let colorComponents = color.components
+        let red, green, blue: Int
+        if let colorComponents = colorComponents,
+           colorComponents.count == 4 {
+            red = Int(colorComponents[0] * 255)
+            green = Int(colorComponents[1] * 255)
+            blue = Int(colorComponents[2] * 255)
+        } else {
+            red = Int(0)
+            green = Int(0)
+            blue = Int(0)
+        }
         let colorNames = ColorName.colors
         
         var selectedColor = colorNames[0]
         var priorDistance = Int.max
         
         for colorName in colorNames {
-            
             let redDifference = abs(colorName.red - red)
             let greenDifference = abs(colorName.green - green)
             let blueDifference = abs(colorName.blue - blue)
