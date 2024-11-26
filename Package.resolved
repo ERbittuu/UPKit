@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "shift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wickwirew/Shift.git",
+      "state" : {
+        "revision" : "18338dfa6436d3a84100a8635a5a4667f6cc84fb",
+        "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    }
+  ],
+  "version" : 2
+}
