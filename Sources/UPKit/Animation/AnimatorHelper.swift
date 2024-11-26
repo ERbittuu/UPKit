@@ -142,4 +142,24 @@ public class AnimatorHelper {
             }
         )
     }
+    
+    public static func animateCellSelectionBegin(on cell: UICollectionViewCell?, scale: CGFloat = 0.95, duration: TimeInterval = 0.1) {
+        guard let cell = cell else { return }
+        
+        UIView.animate(withDuration: duration, animations: {
+            cell.alpha = 0.5
+            cell.transform = CGAffineTransform(scaleX: scale, y: scale)
+        })
+    }
+    
+    public static func animateCellSelectionEnd(on cell: UICollectionViewCell?, duration: TimeInterval = 0.1, completion: (() -> Void)? = nil) {
+        guard let cell = cell else { return }
+        
+        UIView.animate(withDuration: duration, animations: {
+            cell.alpha = 1
+            cell.transform = .identity
+        }) { _ in
+            completion?()
+        }
+    }
 }
